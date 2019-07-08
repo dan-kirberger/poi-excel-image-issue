@@ -80,7 +80,7 @@ public class ExcelGenerator {
         try {
             imageBytes = IOUtils.toByteArray(this.getClass().getClassLoader().getResourceAsStream(fileName));
         } catch (IOException e) {
-            throw new RuntimeException("Failed to load image", e);
+            throw new RuntimeException("Failed to load image: " + fileName, e);
         }
         int pictureId = workbook.addPicture(imageBytes, Workbook.PICTURE_TYPE_PNG);
         Drawing drawing = cell.getSheet().createDrawingPatriarch();
