@@ -1,4 +1,6 @@
 # poi-excel-image-issue
+Example code for Stack Overflow question: https://stackoverflow.com/questions/56940480/adding-images-to-worksheets-that-obey-sorting-and-filtering-rules
+
 Run this program with `./gradlew run` (or however you like to run apps in your IDE)
  
 It will generate two files (generated with different options).
