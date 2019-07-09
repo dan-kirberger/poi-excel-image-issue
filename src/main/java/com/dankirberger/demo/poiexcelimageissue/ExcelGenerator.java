@@ -9,6 +9,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.util.IOUtils;
+import org.apache.poi.util.Units;
 import org.apache.poi.xssf.usermodel.XSSFClientAnchor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -88,8 +89,14 @@ public class ExcelGenerator {
         anchor.setAnchorType(imageAnchorType);
         anchor.setCol1(cell.getColumnIndex());
         anchor.setRow1(cell.getRowIndex());
-        Picture picture = drawing.createPicture(anchor, pictureId);
-        picture.resize(1, 1);
+        anchor.setCol2(cell.getColumnIndex());
+        anchor.setRow2(cell.getRowIndex());
+        anchor.setDx1(Units.pixelToEMU(0));
+        anchor.setDy1(Units.pixelToEMU(0));
+        anchor.setDx2(Units.pixelToEMU(96));
+        anchor.setDy2(Units.pixelToEMU(96));
+
+        drawing.createPicture(anchor, pictureId);
     }
 
     private void write(Workbook workbook) {
